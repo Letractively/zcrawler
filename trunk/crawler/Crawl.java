@@ -21,7 +21,7 @@ public class Crawl
 		{
 			crawl.setSeed(s);
 			try
-			{
+			{dfsd
 				urls.addAll(crawl.scrape());
 				connections++;
 				System.out.println(s + " (" + connections + ") : " + urls.size());
