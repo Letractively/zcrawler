@@ -13,8 +13,7 @@ public class Crawl
 	public static void main(String[] args) throws InvalidAttributeValueException, IOException
 	{
 		List<String> urls = new ArrayList<String>();
-		Crawler crawl = new Crawler("http://www.youtube.com");
-
+		Crawler crawl = new Crawler("http://www.edline.net/pages/ParkwayCentralHS");
 		int connections = 0;
 
 		for (String s : crawl.scrape())
@@ -22,9 +21,13 @@ public class Crawl
 			crawl.setSeed(s);
 			try
 			{
-				urls.addAll(crawl.scrape());
+				for (String ss : crawl.scrape())
+				{
+					if (!urls.contains(ss))
+						urls.add(ss);
+				}
 				connections++;
-				System.out.println(s + " (" + connections + ") : " + urls.size());
+				System.out.println(connections + ":\t" + urls.size() + " \t" + s);
 			}
 			catch (Exception e)
 			{
